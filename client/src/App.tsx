@@ -1,7 +1,11 @@
-import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
-import PatientConsultation from "./pages/PatientConsultation";
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import PatientConsultation from './pages/PatientConsultation';
+import Login from './pages/Login';
+import PatientWorkflow from './pages/PatientWorkflow';
+import DoctorDashboard from './pages/DoctorDashboard';
+import ConsultationView from './pages/ConsultationView';
 
 export default function App() {
   return (
@@ -11,7 +15,10 @@ export default function App() {
           <h1 className="text-xl font-semibold">TwachaSetu™</h1>
           <nav>
             <Link to="/" className="mr-4">Home</Link>
-            <Link to="/consultation">Start Consultation</Link>
+            <Link to="/consultation" className="mr-4">Start Consultation</Link>
+            <Link to="/patient" className="mr-4">Patient</Link>
+            <Link to="/doctor" className="mr-4">Doctor</Link>
+            <Link to="/login">Login</Link>
           </nav>
         </div>
       </header>
@@ -20,6 +27,10 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/consultation" element={<PatientConsultation />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/patient" element={<PatientWorkflow />} />
+          <Route path="/doctor" element={<DoctorDashboard />} />
+          <Route path="/consultation/:id" element={<ConsultationView />} />
         </Routes>
       </main>
     </div>
